@@ -1,0 +1,217 @@
+```html
+<!-- HTML -->
+<body>
+	<div class="box"></div>
+	<div class="box"></div>
+	<div class="box"></div>
+</body>
+```
+
+```css
+/*  CSS */
+body { display: flex; }
+.box {
+width: 200px; height: 200px; background-color: tomato; }
+```
+
+- flexbox는 대부분 정렬하고자 하는 요소가 아닌 그 요소들을 둘러싸고 있는 Container인 부모 요소를 통해 명령해준다.
+- 만약 세개의 div가 있다고 가정하고, flexbox 이전에는 이것들을 1열로 정렬해주려면 각 요소의 display를 inline-block으로 변경해주고, float를 left 혹은 right를 적용해주어야 했다. 하지만, flexbox는 부모 요소, 예를들어 body에 display를 flex로 선언해주면 자동으로 1열로 정렬이 된다.
+
+### 🌟 요소 사이에 여백주기
+
+```css
+/*  CSS */
+body { display: flex; 
+justify-content: space-between; }
+.box {
+width: 200px; height: 200px; background-color: tomato; }
+```
+
+- flexbox를 사용하지 않았을 때는 요소 사이에 여백을 주기 위해 각 요소에 margin값을 지정해줘야 했다.
+- 하지만, flexbox를 사용하면 justify-content 프로퍼티를 사용하여 간단하게 여백을 줄 수 있다.
+
+### 🌟 gap 으로 여백주기
+
+```css
+/*  CSS */
+body { display: flex; 
+gap: 10px; }
+.box {
+width: 200px; height: 200px; background-color: tomato; }
+```
+
+- gap 프로퍼티로 value를 지정해주면, 요소 사이에 지정해준 값 (10px)만큼 여백이 생기게 된다.
+
+### 🌟flex-direction
+
+- 자식요소들이 어떤 방향으로 배치될지를 지시하는 역할을 하고, 기본값은 row(수평)다.
+- 또 다른 값으로는 column(수직)이 있다.
+- row-reverse, column-reverse는 반대로 정렬이 되는 것을 말한다. (방향과 요소의 순서 모두)
+
+### 🌟main axis(주축)과 cross axis(교차축)
+
+- flex container의 direction에 따라 축들의 위치가 달라진다.
+
+![flex-1.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/4fe07dd1-7a8d-4692-b78e-b2626ae79f31/0a08f77f-9aa5-494f-bd9b-ff9eda19a24f/flex-1.png)
+
+- 주축을 중심으로 아이템을 옮기려고 할 때와 교차축을 중심으로 아이템을 옮기려 할 때 다른 프로퍼티를 사용한다.
+- **justify-content**는 주축을 중심으로 아이템을 정렬해준다. (center, flex-start, flex-end, space-between, space-around…)
+
+![flex-2.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/4fe07dd1-7a8d-4692-b78e-b2626ae79f31/c7114148-af39-44bc-97c7-4d06ddec1899/flex-2.png)
+
+- **align-items**는 교차축을 중심으로 아이템을 정렬해준다. (center, flex-start, flex-end, stretch
+
+![flex-3.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/4fe07dd1-7a8d-4692-b78e-b2626ae79f31/c61b6fbd-af95-4f06-8d89-7a8c88c13d44/flex-3.png)
+
+- flex-direction: column;일 때의 주축(수직)과 교차축(수평)
+
+![flex-4.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/4fe07dd1-7a8d-4692-b78e-b2626ae79f31/82733380-642f-41fa-9d86-d80282067373/flex-4.png)
+
+- flex-direction이 row-reverse/column-reverse 일 때의 주축과 교차축
+    
+    ![flex-5.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/4fe07dd1-7a8d-4692-b78e-b2626ae79f31/187bb4b1-091f-4c45-8916-5e3d3844b5a2/flex-5.png)
+    
+
+### 🌟flex의 자식요소도 flex container가 될 수 있다.
+
+### 🌟flex-wrap
+
+- nowrap(기본값) / wrap / wrap-reverse
+    - 한 줄에 여러 요소를 배치하고 싶을 때는 (width값이 압축되더라도) nowrap을 적용할 수 있다.a
+    - width값을 유지하면서 여러 줄로 배치하고 싶을 때는 wrap을 적용할 수 있다.
+
+### ➕flex-flow
+
+- 단축 속성으로 flex-direction과 flex-wrap을 설정하게 해준다.
+- 만약 flex-direction은 row로 flex-wrap은 wrap으로 설정하고 싶을 때, flex-flow: row wrap; 이라고 적어주면 된다.
+
+### 🌟align-content
+
+- flex-wrap이 wrap일 때 (다중라인) container 안의 요소들을 정렬해주는 프로퍼티이다.
+- center, flex-start, flex-end, space-between, space-around, space-evenly…
+
+### 🌟column-gap, row-gap
+
+- flex에서 요소의 행과 열의 간격을 각각 주고 싶을 때, 행(수직)의 간격은 column-gap을 지정해주고 열(수평)의 간격은 row-gap으로 지정해준다.
+
+## 🌟자식요소에 적용하는 속성
+
+### 1. order (기본값 0)
+
+- order의 value 값을 지정해 준 요소들은 다른 자식요소와 상대적이기 때문에 기본값이 0인 다른 요소들이 먼저 온 후에 오게 된다.
+- value 값으로 음수도 적용이 된다.
+
+- 예제
+    - flex container 안에 8개의 자식요소 박스가 있다.
+    - 3번 박스에는 order를 2를 6번 박스에는 order를 1을 설정해본다.
+
+```html
+<!-- HTML -->
+  <body>
+    <div class="father">
+      <div class="box">1</div>
+      <div class="box">2</div>
+      <div class="box">3</div>
+      <div class="box">4</div>
+      <div class="box">5</div>
+      <div class="box">6</div>
+      <div class="box">7</div>
+      <div class="box">8</div>
+    </div>
+  </body>
+```
+
+```css
+/* CSS */
+.father {
+  height: 100vh;
+  display: flex;
+  row-gap: 10px;
+  column-gap: 20px;
+  justify-content: center;
+  flex-flow: row wrap;
+  align-content: center;
+}
+
+.box {
+  width : 200px;
+  height: 200px;
+  background-color: tomato;
+  color: white;
+  font-size: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box:nth-child(3) {
+  background-color: blueviolet;
+  order: 2;
+}
+
+.box:nth-child(6) {
+  background-color: aqua;
+  order: 1;
+}
+
+/* 6번째 박스에는 order를 1을 주고, 3번째 박스에는 order를 2를 주었다.*/
+```
+
+- 결과
+
+![스크린샷 2024-05-01 오후 12.32.47.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/4fe07dd1-7a8d-4692-b78e-b2626ae79f31/63df5b54-67e8-4be3-8223-d235c0d94fdd/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2024-05-01_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_12.32.47.png)
+
+- order를 주지 않은 나머지 요소들은 기본값이 0이므로 먼저 나오게 되고, 그 다음 1을 준 6번째 박스가 나오고 2를 준 3번째 박스가 나오게 된다.
+
+### 2. align-self
+
+- 자식요소에 개별적으로 교차축 정렬을 줄 수 있는 속성이다.
+- 속성을 지정해 준 자식요소만 정렬이 달라진다.
+- center, flex-start, flex-end …
+
+### 3. flow-grow
+
+- flex container의 자식요소가 얼마만큼의 비율로 최대한 공간을 차지할 수 있는 지(컨텐츠 크기 이상) 지정해주는 속성이다.
+- 해당 속성은 반응형 웹에 매우 유용하다.
+
+- flex contianer 안에 div box가 두개가 있다고 가정하고, 첫 번째 박스에는 flow-grow를 3, 두 번째 박스에는 2를 지정해주자
+
+```css
+/* CSS */
+
+.box:first-child {
+  background-color: tomato;
+  flex-grow: 3;
+}
+
+.box:last-child {
+  background-color: teal;
+  flex-grow: 2;
+}
+```
+
+- 결과
+
+![스크린샷 2024-05-02 오전 11.14.08.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/4fe07dd1-7a8d-4692-b78e-b2626ae79f31/634855c4-68ef-45c5-9782-caeadfedd94e/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2024-05-02_%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB_11.14.08.png)
+
+⇒ 3:2 비율로 공간을 차지하는 것을 볼 수 있다.
+
+### 4. flex-shrink (축소)
+
+- 화면의 크기가 줄어들 때 박스 안의 텍스트를 줄바꿈해 크기를 압축시키는 것을 비율로 설정하는 것이다.
+- 화면이 줄어들면 flex-shrink 비율이 큰 박스가 먼저 텍스트를 줄바꿈 시켜 압축되기 시작한다.
+- flex-shrink가 0인 요소는 텍스트에 영향을 주지 않는다. (텍스트가 줄바꿈되면서 압축되지 않고, 텍스트가 필요한 공간을 유지한다.)
+
+### 5.flex basis
+
+- 박스의 크기가 커지거나 줄어들기 이전에 초기 크기를 설정할 수 있는 프로퍼티이다.
+- 화면의 크기가 변경되면 박스의 크기가 변한다.
+- 박스가 두개 있을 때, flex-grow를 1로 같은 값을 설정해도, flex basis를 설정해 준 박스의 크기가 대부분 더 크다. 초기 값에서 커지거나 작아지기 때문이다.
+- 만약 flex basis를 설정해 준 박스에 flex-shrink를 0으로 설정해주면 초기 값에서 더 이상 줄어들지 않고, 초기 값으로 고정된다. (min-width와 같은 기능을 할 수 있다.)
+- 만약 flex grow를 0으로 flex-shrink를 양수로 설정하고, flex-basis를 설정하면 flex-basis 값은 max-width와 같은 기능을 한다.
+
+⇒ 이 때, width와 flex-basis의 차이점은 flex-basis는 주축을 가지고 있고, 주축을 수평 혹은 수직으로 바꿔가며 설정할 수 있다는 점에서 차이가 있다.
+
+### 6. flex (flex-gorw, flex-shrink, flex-basis)
+
+- flex 라는 프로퍼티로 flex-gorw, flex-shrink, flex-basis를 순서대로 적어 값을 한번에 설정할 수 있다.
