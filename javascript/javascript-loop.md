@@ -86,3 +86,19 @@ for (let key in obj) {
     console.log(key, obj[key]); // a 1, b 2, c 3
 }
 ```
+
+## forEach 메서드
+
+- 배열의 각 요소에 대해 지정된 함수를 실행합니다.
+
+```javascript
+// 배열.forEach(function(요소, 인덱스) {
+//     // 코드 블록
+// });
+const fruits = ['사과', '바나나', '딸기', '포도'];
+
+// 배열의 각 요소에 대해 작업하는 forEach 메서드를 호출합니다.
+fruits.forEach(fruit => {
+    console.log(fruit);
+}); //사과 바나나 딸기 포도
+```
