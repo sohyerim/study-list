@@ -109,6 +109,10 @@ console.log(messageObject.includes('world')); // 출력: true
 - toUpperCase() 메소드는 문자열을 모두 대문자로 변환한 새로운 문자열을 반환합니다.
 - includes() 메소드는 문자열에 특정 문자열이 포함되어 있는지 여부를 확인하고, 포함되어 있으면 true, 그렇지 않으면 false를 반환합니다.
 - 문자열은 사실 문자들의 배열으로 생각할 수 있습니다. 각 문자는 문자열의 인덱스를 통해 접근할 수 있습니다.
+- “안녕하세요”.charAt(3) // 세 → 해당 인덱스의 문자를 가지고 온다.
+- “안녕하세요”.concat(”저는 소혜림입니다”) // 안녕하세요 저는 소혜림입니다
+- “”.split() → 특정 기준 문자열을 분할하여 배열로 반환한다.
+- “안녕”.repeat(2) // 안녕안녕
 
 ### 4. Number
 ```javascript
@@ -142,6 +146,8 @@ console.log(numObject.toPrecision(4)); // 출력: "42.00"
 - toFixed() 메소드는 소수점 이하 자릿수를 지정하여 문자열로 반환합니다.
 - toPrecision() 메소드는 숫자의 전체 자릿수를 지정하여 문자열로 반환합니다.
 -  숫자를 객체 형태로 표현하면 값으로 가지고 있는 value 속성과 다양한 메소드를 포함합니다.
+- Number(”5”) → 문자열을 숫자로 반환한다.
+- ParseInt(”5”) → 문자열을 숫자로 반환한다.
 
 ### 5.Function
 
@@ -208,6 +214,11 @@ console.log(currentDateObject.getFormattedDate()); // YYYY-MM-DD 형식의 현�
 - getDate() 메소드는 현재 날짜를 반환합니다.
 - 객체 내부에는 현재 연도, 월, 날짜를 저장하는 속성들이 있으며, 메소드인 getFormattedDate()를 통해 YYYY-MM-DD 형식으로 현재 날짜를 반환합니다.
 
+- 날짜와 시간을 생성하는 빌트인 객체지만 잘 사용되지 않는다.
+- 사용자의 로컬 환경을 기준으로 시간을 생성하기 때문에 부정확하기 때문이다.
+- 그래서 서버의 시간을 가지고 올 수 있는 dayjs, momentjs, luxon 라이브러리를 대신 사용한다.
+- UTC00 - 협정세계시 (1972년 1월 1일에 지정) : 유닉스의 시간이 지나기 시작한 1970년도 1월 1일 자정 기준
+
 ### 7. Math
 ```javascript
 console.log(Math.PI); // 원주율을 출력
@@ -238,3 +249,22 @@ console.log(mathObject.generateRandomNumber()); // 0과 1 사이의 난수를 �
 - Math.floor()는 주어진 숫자를 내림하여 정수 부분을 반환합니다.
 - Math.random()은 0과 1 사이의 난수를 반환합니다.
 - 객체 내부에는 Math 객체의 메소드와 속성들이 포함되어 있습니다.
+
+- Math.max(1 , 2)  // 2 → 최대값
+- Math.min(1, 2, 3, 4, 5) // 1 → 최소값
+- Math.random() 0~1사이의 무작위 소수
+    - Math.floor (내림)
+    - Math.ceil (올림)
+    - Math.round (반올림)
+    - Math.trunc (버림)
+    
+    ```javascript
+    // 1 ~ 10까지 랜덤한 수 생성하기
+    
+    Math.floor(Math.random() * 10 + 1)
+    ```
+    
+    - Math.abs(-5) // 5 → 절대값
+    - Math.sqrt(a) → 제곱근
+    - Math.cbrt(a) → 세제곱근
+    - …
