@@ -122,27 +122,27 @@ yarn remove 라이브러리명
      
 --------------------------------------------------------------------------
 
-  리액트 폴더 구조
+### 리액트 폴더 구조
 
-  node_modules : 현재 패키지에 설치된 라이브러리의 실제 코드들이 저장
-               : 용량이 큼 git에 올리지 않는다 (제외)
-               : package.json이 있다면 언제든 재설치 -->  npm install
-  
-  public : 정적 파일을 관리, 페비콘, index.html, sitemap, robots(검색엔진)
-  src : 개발이 진행되는 공간
-  .gitignore : git에 올리지 않을 파일을 정의
-  package-lock.json : 패키지에 설치된 라이브러리의 실제 설치 주소와 버전이 맵핑
-  package.json : 실행 스크립트를 정의, 설치된 라이브러리 목록, 프로젝트 정보, 버전관리
-  README.md : 깃헙에 들어갔을 때 처음에 보이는 마크다운
+1. node_modules : 
+- 현재 패키지에 설치된 라이브러리의 실제 코드들이 저장
+- 용량이 큼 git에 올리지 않는다 (제외)
+- package.json이 있다면 언제든 재설치 -->  npm install
+2. public : 정적 파일을 관리, 페비콘, index.html, sitemap, robots(검색엔진)
+3. src : 개발이 진행되는 공간
+4. .gitignore : git에 올리지 않을 파일을 정의
+5. package-lock.json : 패키지에 설치된 라이브러리의 실제 설치 주소와 버전이 맵핑
+6. package.json : 실행 스크립트를 정의, 설치된 라이브러리 목록, 프로젝트 정보, 버전관리
+7. README.md : 깃헙에 들어갔을 때 처음에 보이는 마크다운
 
 --------------------------------------------------------------------------
 
-  src
-    App.css : 최상위 css (rest-css, 공용 , 폰트)
-    ** App.js : 최상위 컴포넌트, 사용자가 볼 수 있는 UI 
-    App.test.js: 테스트 코드 예시 파일
-    index.css : 최상위 css (rest-css, 공용, 폰트)
-    ** index.js : app.js를 index.html의 root로 렌더링, 리엑트의 랜더 원리
-    logo.svg : 예시 이미지 파일
-    reportWebVitals.js : 프론트 엔드 성능 얼마만에 랜더링이 되었는지 체크 프로파일링 도구
-    setupTests.js : 테스트코드에 필요한 도구를 전역으로 등록 (테스트를 도와주는 도구)
+### src
+- App.css : 최상위 css (rest-css, 공용 , 폰트)
+- **App.js** : 최상위 컴포넌트, 사용자가 볼 수 있는 UI 
+- App.test.js: 테스트 코드 예시 파일
+- index.css : 최상위 css (rest-css, 공용, 폰트)
+- **index.js** : app.js를 index.html의 root로 렌더링, 리엑트의 랜더 원리
+- logo.svg : 예시 이미지 파일
+- reportWebVitals.js : 프론트 엔드 성능 얼마만에 랜더링이 되었는지 체크 프로파일링 도구
+- setupTests.js : 테스트코드에 필요한 도구를 전역으로 등록 (테스트를 도와주는 도구)
