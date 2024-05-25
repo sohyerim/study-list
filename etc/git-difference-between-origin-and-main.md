@@ -1,5 +1,4 @@
 
-````markdown
 # Git의 `origin`과 `main`(master) 브랜치 개념 이해하기
 
 이전에 Git을 제대로 공부하지 않고 GitHub에 디렉토리를 Push하려다가 내가 Branch 개념을 제대로 이해하지 못 하고 있다고 느꼈고, 이를 이해하기 위해 ChatGPT를 통해 Branch에 대해 다시 공부를 하면서 `origin`과 `main`(master)의 차이를 확실히 알게 됐다.
@@ -35,4 +34,3 @@ git checkout main
 git push origin main
 # 해당 명령어는 origin(원격 저장소)의 main(브랜치)에 로컬 저장소의 main 브랜치에 있는 커밋 및 변경 사항을 push한다는 것을 의미한다.
 ```
-````
